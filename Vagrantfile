@@ -117,6 +117,10 @@ Vagrant.configure("2") do |config|
         vbox.name = my.vm.hostname
         vbox.customize ["modifyvm", :id, "--memory",256]
       end
+
+      my.vm.provision :puppet do |puppet|
+        puppet.manifest_file = "db.pp"
+      end
   end
 
   config.vm.define :web do |my|
