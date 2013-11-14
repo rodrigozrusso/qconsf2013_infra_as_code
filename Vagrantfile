@@ -48,12 +48,12 @@ Vagrant.configure("2") do |config|
   end
 
   # Install/Update guest additions
-  if (config.vbguest.class == Vagrant::Config::V2::DummyConfig)
-    puts "vagrant-vbguest plugin not installed.  Please install it for automatic installation of VirtualBox guest additions."
-  else
-    config.vbguest.auto_update = false
-    config.vbguest.no_remote = false
-  end
+#  if (config.vbguest.class == Vagrant::Config::V2::DummyConfig)
+#    puts "vagrant-vbguest plugin not installed.  Please install it for automatic installation of VirtualBox guest additions."
+#  else
+#    config.vbguest.auto_update = false
+#    config.vbguest.no_remote = false
+#  end
   
   ## Options below here usually don't need tweaking.  An exception would be for provisioning nodes in Amazon EC2.
 
