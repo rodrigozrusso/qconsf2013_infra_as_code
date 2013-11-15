@@ -21,9 +21,16 @@ service { "mysql":
 }
 
 exec { "create-opencart-db":
-
 	command     => "mysqladmin -uroot create opencart",
 	unless      => "mysqlshow -uroot opencart",
 	path		=> "/usr/bin/",
 	require    => Package["mysql-server"],
+}
+
+exec { "grant-opencart-user":
+
+	command     => "mysql -uroot -e \"grant all on opencart.* to 'opencart'@'%' identified by 'openpass';grant all on opencart.* to 'opencart'@'localhost' identified by 'openpass';\"",
+	unless      => "mysql -uopencart -popenpass",
+	path		=> "/usr/bin/",
+	require		=> Exec["create-opencart-db"],
 }
