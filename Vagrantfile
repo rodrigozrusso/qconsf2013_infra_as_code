@@ -115,7 +115,7 @@ Vagrant.configure("2") do |config|
       my.vm.hostname = "db"
       my.vm.provider :virtualbox do |vbox|
         vbox.name = my.vm.hostname
-        vbox.customize ["modifyvm", :id, "--memory",256]
+        vbox.customize ["modifyvm", :id, "--memory",512]
       end
 
       my.vm.provision :puppet do |puppet|
