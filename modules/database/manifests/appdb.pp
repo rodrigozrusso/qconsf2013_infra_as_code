@@ -1,3 +1,5 @@
+include "mysql"
+
 define appdb($database, $username, $password) {
 	
 	exec { "create-opencart-db":

@@ -2,6 +2,6 @@ import "database"
 
 appdb { "opencart-db-parameters":
   database => "opencart",
-  username => "openpass",
+  username => "opencart",
   password => "openpass",
 }

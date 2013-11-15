@@ -18,7 +18,7 @@ class mysql {
 		enable     => true,
 		hasstatus  => true,
 		hasrestart => true,
-		require    => Package["mysql-server"],
+		require    => File["/etc/mysql/conf.d/allow_external.cnf"],
 	}
 
 }
