@@ -15,9 +15,3 @@ define appdb($database, $username, $password) {
 		require		=> Exec["create-opencart-db"],
 	}
 }
-
-appdb { "opencart-db-parameters":
-  database => "opencart",
-  username => "openpass",
-  password => "openpass",
-}
