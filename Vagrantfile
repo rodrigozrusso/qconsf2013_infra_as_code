@@ -15,12 +15,12 @@
 # If you're running in AWS or other cloud provider you'll need to replace the above IPs with the IPs dynamically assigned.
 
 # Caching proxy setup for classes with poor Internet connectivity.
-# proxy_enabled = false
-proxy_enabled = true
+proxy_enabled = false
+# proxy_enabled = true
 
 if (proxy_enabled)
-  # proxyHost='172.16.1.100'         # Enter the IP of the class' caching proxy.  172.16.1.100 is 
-  proxyHost='172.20.83.87'         # Enter the IP of the class' caching proxy.  172.16.1.100 is default Instructor VM for testing.
+  proxyHost='172.16.1.100'         # Enter the IP of the class' caching proxy.  172.16.1.100 is 
+  # proxyHost='172.20.83.87'         # Enter the IP of the class' caching proxy.  172.16.1.100 is default Instructor VM for testing.
   proxy="http://#{proxyHost}:8123"
   base_box = "http://#{proxyHost}/student/precise-server-cloudimg-amd64-vagrant-disk1.box"
   apt_proxy_config = proxy 
@@ -113,10 +113,10 @@ Vagrant.configure("2") do |config|
   config.vm.define :db do |my|
       my.vm.network :private_network, ip: "172.16.1.11"
       my.vm.hostname = "db"
-      my.vm.provider :virtualbox do |vbox|
-        vbox.name = my.vm.hostname
-        vbox.customize ["modifyvm", :id, "--memory",512]
-      end
+#      my.vm.provider :virtualbox do |vbox|
+#        vbox.name = my.vm.hostname
+#        vbox.customize ["modifyvm", :id, "--memory",512]
+#      end
 
       my.vm.provision :puppet do |puppet|
         puppet.manifest_file = "db.pp"
