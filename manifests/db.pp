@@ -24,7 +24,7 @@ exec { "create-opencart-db":
 	command     => "mysqladmin -uroot create opencart",
 	unless      => "mysqlshow -uroot opencart",
 	path		=> "/usr/bin/",
-	require    => Package["mysql-server"],
+	require    => Service["mysql"],
 }
 
 exec { "grant-opencart-user":
